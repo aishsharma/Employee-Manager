@@ -1,30 +1,46 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Employee Manager</title>
-        <meta name="description" content="A demo SPA application">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- CSS Files -->
-        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Employee Manager</title>
+    <meta name="description" content="A demo SPA application">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
 
-        <!--JavaScript Files-->
-        <script src="/static/js/jquery.min.js"></script>
-        <script src="/static/js/bootstrap.min.js"></script>
-        <script src="/static/js/underscore.min.js"></script>
-        <script src="/static/js/backbone.min.js"></script>
-        <script src="/static/js/app.js"></script>
-    </body>
+
+    <div class="container">
+
+
+        <div class="jumbotron">
+            <h1>
+                Employee Directory
+            </h1>
+        </div>
+
+        <div class="text-danger" id="error"></div>
+
+        <div id="app">
+            This site needs JavaScript to function. Please be sure you have enabled JavaScript in your browser.
+        </div>
+    </div>
+
+
+    <!--JavaScript Files-->
+    <script src="/static/js/libs/jquery.min.js"></script>
+    <script src="/static/js/libs/bootstrap.min.js"></script>
+    <script src="/static/js/libs/handlebars-v4.0.10.js"></script>
+    <script src="/static/js/libs/sammy.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+
 </html>

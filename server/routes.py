@@ -1,10 +1,21 @@
-import bottle, decimal
+import bottle
+from bottle import response
 from server import EmployeeDao
-from server.models import Employee
 
 from server.models import Employee
 
 app = bottle.Bottle()
+
+
+@app.hook('after_request')
+def enable_cors():
+	"""
+	You need to add some headers to each request.
+	Don't use the wildcard '*' for Access-Control-Allow-Origin in production.
+	"""
+	response.headers['Access-Control-Allow-Origin'] = '*'
+	response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
+	response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
 
 
 @app.route("/")
@@ -43,5 +54,4 @@ def edit_employee():
 	email = str(bottle.request.POST.email).strip()
 	gender = str(bottle.request.POST.gender).strip()
 	salary = round(float(str(bottle.request.POST.salary).strip()), 2)
-
 	employee = Employee(-1, first_name, last_name, email, gender, str(salary))
