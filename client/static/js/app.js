@@ -22,6 +22,7 @@ function templateLoader(templateName, api) {
                 var context = {};
                 $.getJSON(config.API_URL + api, function (data) {
                     context = data;
+                    console.log(data);
                 })
                     .done(function () {
                         //compiling and displaying template
@@ -43,12 +44,13 @@ function templateLoader(templateName, api) {
 }
 
 //Router - Routes to pages
-var router = $.sammy(function () {
-    this.get("#/", templateLoader("home", "employees"));
+var router = $.sammy("#app", function () {
+    this.get("#/", templateLoader("EmployeeList", "employees"));
+    this.get("#/employee/:id", function () { templateLoader("EmployeeView", "employees/" + this.params.id); });
 });
 
 //Starts the router on page load
 $(function () {
-    $.sammy.raise_errors = true;
+    router.raise_errors = true;
     router.run("#/");
 });

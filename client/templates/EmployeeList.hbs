@@ -4,7 +4,6 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Employee ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Gender</th>
@@ -14,8 +13,7 @@
             </thead>
             <tbody>
                 {{#each employees}}
-                <tr>
-                    <td>{{id}}</td>
+                <tr onclick="window.location.href='#/employee/{{id}}'">
                     <td>{{first_name}}</td>
                     <td>{{last_name}}</td>
                     <td>{{gender}}</td>

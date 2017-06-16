@@ -44,6 +44,7 @@ def new_employee():
 	salary = round(float(str(bottle.request.POST.salary).strip()), 2)
 
 	employee = Employee(-1, first_name, last_name, email, gender, str(salary))
+	EmployeeDao.new_employee(employee)
 
 
 @app.put("/api/employees/edit")
@@ -55,3 +56,4 @@ def edit_employee():
 	gender = str(bottle.request.POST.gender).strip()
 	salary = round(float(str(bottle.request.POST.salary).strip()), 2)
 	employee = Employee(-1, first_name, last_name, email, gender, str(salary))
+	EmployeeDao.update_employee(employee)
