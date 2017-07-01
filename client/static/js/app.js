@@ -4,9 +4,12 @@ var config = {
     TEMPLATE_PATH: "/templates/"
 };
 
-
 //Gets template and json API data, compiles and loads template onto main page
 function templateLoader(templateName, api) {
+    //Reset page & error label on page change
+    $("#error").html("");
+    $("#app").html("");
+
     //Show spinner while loading template"
     $("#app").html("<div id='spinner'><i class='fa fa-spinner fa-pulse fa-5x'></i></div>");
 
@@ -43,10 +46,21 @@ function templateLoader(templateName, api) {
         });
 }
 
+function createNewEmployee() {
+    var firstName = $("#firstName").value;
+    var lastName = $("#lastName").value;
+    var gender = $("#gender").value;
+    var email = $("#email").value;
+    var salary = $("#salary").value;
+
+    alert(firstName);
+}
+
 //Router - Routes to pages
 var router = $.sammy("#app", function () {
     this.get("#/", templateLoader("EmployeeList", "employees"));
     this.get("#/employee/:id", function () { templateLoader("EmployeeView", "employees/" + this.params.id); });
+    this.get("#/newEmployee", function () { templateLoader("NewEmployee"); });
 });
 
 //Starts the router on page load
